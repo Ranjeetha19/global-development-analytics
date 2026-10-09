@@ -2,26 +2,37 @@
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
-![Excel](https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white)
+![Excel](https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
-![Machine Learning](https://img.shields.io/badge/Machine_Learning-FF6F00?style=for-the-badge)
+![Scikit-learn](https://img.shields.io/badge/Scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)
+
+An end-to-end data analytics and machine learning project exploring global development indicators and predicting GDP per capita using World Bank data from **2010–2024**.
 
 ## 📌 Project Overview
 
-This project explores global development indicators and their relationship with GDP per capita across countries and economies from **2010 to 2024**, using World Development Indicators (WDI) data from the World Bank.
+This project investigates how selected economic, demographic, digital, labour-market and trade-related indicators are associated with GDP per capita across countries and economies.
 
-The project follows a data analytics workflow, beginning with data preparation in Excel, continuing with SQL-based data storage and querying, and progressing to exploratory data analysis (EDA) and machine learning in Python.
+Using the World Bank's World Development Indicators (WDI) dataset, the project follows three main stages:
 
-The objective is to understand development trends, examine relationships between economic and social indicators, and evaluate models for predicting GDP per capita.
+1. **Excel:** Data selection, cleaning and preparation.
+2. **SQL:** Data storage, querying and validation.
+3. **Python:** Exploratory data analysis (EDA), feature engineering, machine learning and prediction analysis.
+
+The predictive component examines whether historical development indicators can estimate GDP per capita in the following year and whether including previous-year GDP improves model performance.
 
 ## 🎯 Project Objectives
 
-- Clean and prepare World Bank development data using Excel.
-- Store and query the prepared dataset using SQL.
-- Explore trends and relationships between GDP per capita and development indicators.
-- Engineer features for predictive modelling.
-- Train and evaluate machine learning models.
-- Compare model performance and interpret the results.
+- Prepare a structured dataset of development indicators.
+- Store and analyze the prepared data using SQL.
+- Explore GDP per capita trends and relationships with development indicators.
+- Build predictive models using historical data.
+- Compare a baseline, Linear Regression and Random Forest.
+- Evaluate the predictive contribution of development indicators separately from previous-year GDP.
+- Compare actual and predicted GDP per capita to identify prediction gaps.
+
+## Key Findings and Practical Relevance
+
+This project analyzes global development trends and explores how social and economic indicators relate to GDP per capita across countries from 2010 to 2024, using World Bank data. The analysis evaluates population growth, life expectancy, internet usage, unemployment, and exports as a percentage of GDP to understand their relationship with economic outcomes and assess their usefulness in GDP-per-capita prediction. Among the models using these indicators alone, Random Forest performed better than Linear Regression in the recorded evaluation results. Including previous-year GDP per capita substantially improved prediction accuracy, highlighting the importance of historical economic trends in estimating future values. These findings demonstrate how public data, SQL, Python, and machine learning can support cross-country comparisons, economic trend analysis, and data-informed research. The results may be useful to analysts, researchers, and development organizations exploring differences in economic performance. However, the project identifies predictive relationships rather than causal effects; it does not establish that any individual indicator directly causes GDP per capita to increase or decrease.
 
 ## 🔄 Project Workflow
 
@@ -33,9 +44,10 @@ flowchart TD
     D --> E["🐍 Python: Load Data"]
     E --> F["📈 Exploratory Data Analysis"]
     F --> G["⚙️ Feature Engineering"]
-    G --> H["🤖 Machine Learning Models"]
-    H --> I["📏 Model Evaluation & Comparison"]
-    I --> J["💡 Findings & Insights"]
+    G --> H["🤖 Train Prediction Models"]
+    H --> I["📏 Evaluate & Compare Models"]
+    I --> J["🎯 Actual vs Predicted Analysis"]
+    J --> K["💡 Findings & Insights"]
 
     classDef source fill:#E8F1FF,stroke:#3973AC,color:#17365D
     classDef excel fill:#E4F4E8,stroke:#217346,color:#174A2A
@@ -46,57 +58,64 @@ flowchart TD
     class A source
     class B excel
     class C,D sql
-    class E,F,G,H,I python
-    class J result
+    class E,F,G,H,I,J python
+    class K result
 ```
 
 ## 🛠️ Tools & Technologies
 
 | Tool | Purpose |
 |---|---|
-| Microsoft Excel | Data cleaning, indicator selection and preparation |
+| Microsoft Excel | Data selection, cleaning and preparation |
 | MySQL / SQL | Data storage, querying and validation |
-| Python | Data analysis and machine learning |
-| Pandas & NumPy | Data manipulation and numerical operations |
+| Python | Data analysis and predictive modelling |
+| Pandas | Data manipulation and analysis |
+| NumPy | Numerical operations |
 | Matplotlib & Seaborn | Data visualization |
-| Scikit-learn | Machine learning and model evaluation |
-| Jupyter Notebook | Development and documentation |
+| Scikit-learn | Model training and evaluation |
+| Jupyter Notebook | Analysis and project documentation |
 
 ## 📂 Dataset
 
 **Source:** [World Bank — World Development Indicators](https://databank.worldbank.org/source/world-development-indicators)
 
-The project uses development indicators covering the period **2010–2024**.
+**Analysis period:** 2010–2024
 
-The selected variables include:
+**Unit of analysis:** Country-year observations, representing a country or economy in a particular year.
 
-- **GDP per capita:** GDP per capita (constant 2015 US$), used as the prediction target.
-- **Population growth:** Annual population growth rate.
-- **Life expectancy:** Life expectancy at birth.
-- **Internet usage:** Individuals using the internet (% of population).
-- **Unemployment:** Unemployment rate.
-- **Exports:** Exports of goods and services (% of GDP).
+### Selected Indicators
 
-The prepared dataset is used for SQL analysis and subsequent Python-based modelling.
+| Indicator | Role in the analysis |
+|---|---|
+| GDP per capita (constant 2015 US$) | Prediction target |
+| Population growth | Development indicator |
+| Life expectancy at birth | Development indicator |
+| Internet usage (% of population) | Development indicator |
+| Unemployment | Development indicator |
+| Exports of goods and services (% of GDP) | Development indicator |
+
+The analysis focuses on the five selected development indicators and GDP per capita. These variables provide a limited view of development and do not capture every factor influencing national economic outcomes.
 
 ## 1️⃣ Excel — Data Preparation
 
-The first stage involved preparing the World Bank dataset for analysis.
+The first stage involved preparing the World Bank data for analysis.
 
-Key activities:
-- Selected the required development indicators.
-- Filtered the relevant years from 2010 to 2024.
-- Cleaned and organized the data into an analytical structure.
+### Key activities
+
+- Selected the required indicators.
+- Filtered the relevant period, 2010–2024.
+- Cleaned and organized the dataset.
 - Reviewed missing values and duplicate records.
-- Prepared the cleaned dataset for SQL storage.
+- Prepared the structured dataset for SQL storage.
 
-**Output:** A structured dataset ready for database storage and analysis.
+**Output:** A cleaned dataset ready for database storage and subsequent analysis.
 
 ## 2️⃣ SQL — Data Storage & Queries
 
-The second stage involved storing the prepared dataset in a relational database and using SQL queries to inspect and analyze the data.
+The second stage involved storing the prepared dataset in a relational database and using SQL to inspect and analyze the data.
 
-Key activities:
+### Key activities
+
 - Created the project database and analytical table.
 - Imported the prepared development dataset.
 - Examined country and year coverage.
@@ -104,56 +123,121 @@ Key activities:
 - Queried indicator ranges and GDP per capita rankings.
 - Compared development indicators across countries and years.
 
-**Output:** A database containing the prepared data and SQL queries for analytical exploration.
+**Output:** A database and a set of SQL queries supporting data validation and analytical exploration.
 
-The SQL script is available in the `sql/` directory.
+The SQL script is stored in the `sql/` directory.
 
 ## 3️⃣ Python — EDA & Machine Learning
 
-The third stage focused on exploratory analysis, feature engineering and predictive modelling using Python in Jupyter Notebook.
+The third stage focused on exploratory analysis, feature engineering and GDP per capita prediction using Python in Jupyter Notebook.
 
-### Exploratory Data Analysis (EDA)
+### 📈 Exploratory Data Analysis
 
-- Examined the distribution of GDP per capita.
-- Explored relationships between GDP per capita and selected indicators.
-- Investigated patterns across countries and years.
-- Visualized trends and relationships using charts.
+The analysis explored:
 
-### Feature Engineering
+- Differences in GDP per capita across countries and years.
+- Relationships between GDP per capita and the selected development indicators.
+- Historical development patterns and indicator distributions.
+- Actual versus predicted GDP per capita.
 
-- Prepared model features from the selected development indicators.
-- Created lagged GDP per capita features to incorporate previous-year information.
-- Prepared the data for model training and evaluation.
+These analyses help describe patterns in the data but do not establish causal relationships.
 
-### Machine Learning Models
+### ⚙️ Feature Engineering & Prediction Setup
 
-The project compares different approaches to GDP per capita prediction:
+The predictive question was:
 
-- Previous-year GDP baseline.
-- Linear Regression.
-- Random Forest Regressor.
+> Can a country's previous-year GDP per capita and development indicators help predict its GDP per capita in the following year?
 
-Models using development indicators alone are evaluated separately from models that also include lagged GDP per capita.
+The project compared three approaches:
 
-### Model Evaluation
+1. **Previous-Year GDP Baseline:** Uses the previous year's GDP per capita as the prediction for the following year.
+2. **Indicators-Only Models:** Use the five lagged development indicators without GDP per capita as a predictor.
+3. **Full Models:** Combine the five development indicators with previous-year GDP per capita.
 
-The models are assessed using:
+The notebook describes a chronological evaluation approach, using historical observations from **2011–2022** for training and later observations from **2023–2024** for testing.
 
-- **Mean Absolute Error (MAE):** Measures the average absolute prediction error.
-- **R² score:** Measures the proportion of variance explained by the model.
+### 🤖 Models Evaluated
 
-The previous-year GDP baseline is important because GDP per capita often changes gradually over time. Models that include lagged GDP can perform substantially better than models relying only on the selected development indicators.
+- **Linear Regression:** Models relationships between input variables and GDP per capita using a linear function.
+- **Random Forest Regressor:** Combines multiple decision trees to model potentially more complex patterns.
+- **Previous-Year GDP Baseline:** Provides a simple benchmark against which machine learning models can be compared.
 
-*Note: Model scores should be confirmed by rerunning the notebook before being presented as final results.*
+The baseline is not a machine learning model; it is included to determine whether more complex models improve on simply carrying forward the previous year's GDP per capita.
 
-## 📊 Key Analytical Focus
+## 📊 Machine Learning Results
 
-The project investigates the following questions:
+The following performance values are recorded in the exported notebook.
 
-1. How has GDP per capita changed across countries from 2010 to 2024?
-2. How are population growth, life expectancy, internet usage, unemployment and exports associated with GDP per capita?
-3. How does predictive performance differ between development-indicator-only models and models that use previous-year GDP?
-4. Does adding lagged GDP improve predictive accuracy compared with using development indicators alone?
+| Model | MAE | RMSE | R² |
+|---|---:|---:|---:|
+| Previous-Year GDP Baseline | 398.85 | 1,584.59 | 0.994 |
+| Linear Regression — Indicators Only | 13,027.97 | 15,936.26 | 0.428 |
+| Random Forest — Indicators Only | 5,550.14 | 8,820.87 | 0.825 |
+| Linear Regression — Indicators + Previous GDP | **376.84** | 1,555.56 | **0.995** |
+| Random Forest — Indicators + Previous GDP | 496.79 | 1,592.21 | 0.994 |
+
+*MAE and RMSE are measured in constant 2015 US dollars per capita. These are recorded notebook results and should be reconfirmed by rerunning the final notebook before being treated as verified final results.*
+
+### 📐 Evaluation Metrics
+
+- **MAE (Mean Absolute Error):** Average absolute difference between actual and predicted values. Lower is better.
+- **RMSE (Root Mean Squared Error):** Measures prediction error while penalizing larger errors more heavily. Lower is better.
+- **R²:** Measures how well predictions account for variation in the target relative to a mean-based reference. Higher is generally better.
+
+### 🏆 What Did the Models Find?
+
+**1. Random Forest performed better with development indicators alone.**
+
+Random Forest achieved an R² of **0.825**, compared with **0.428** for Linear Regression. It also had a lower MAE, suggesting that it captured more useful predictive patterns from the five selected indicators in this evaluation.
+
+**2. Previous-year GDP substantially improved prediction performance.**
+
+When previous-year GDP per capita was included, the recorded R² increased to **0.995** for Linear Regression and **0.994** for Random Forest.
+
+This indicates that historical GDP per capita carries substantial information about the following year's value.
+
+**3. Linear Regression with previous-year GDP achieved the strongest recorded overall metrics.**
+
+It achieved the lowest MAE, **376.84**, and the highest R², **0.995**, among the approaches compared. Its recorded results were slightly better than the previous-year GDP baseline on the listed metrics.
+
+**4. The five development indicators alone were less accurate.**
+
+Both indicators-only models had larger errors than the models that also used previous-year GDP. This shows why it is important to evaluate the selected development indicators separately from GDP's year-to-year persistence.
+
+**5. More complex models do not automatically perform best.**
+
+Random Forest performed better than Linear Regression when using the five indicators alone, but Linear Regression performed best in the recorded full-model comparison. The best-performing model depends on the features provided and the evaluation setup.
+
+## 🇮🇳 Example: India GDP per Capita in 2024
+
+The notebook records the following actual-versus-predicted comparison for India in 2024:
+
+| Measure | GDP per capita |
+|---|---:|
+| Actual value | $2,366.83 |
+| Linear Regression prediction | $2,429.08 |
+| Random Forest prediction | $2,300.03 |
+
+These values illustrate how the model estimates can be compared with an observed country-year value. The predictions should be interpreted in the context of the model's inputs and evaluation process, not as official economic forecasts.
+
+## 🔍 Prediction Gap Analysis
+
+The project also compares predicted GDP per capita with actual values to identify observations where the model's estimate differs from the recorded value.
+
+These prediction gaps can help identify country-year observations for further investigation. However, a gap alone does not explain why the difference occurred. Additional economic, demographic, policy and country-specific information would be needed to investigate possible explanations.
+
+## 💡 Overall Key Findings
+
+The main findings from the project are:
+
+- GDP per capita varies substantially across countries and over time.
+- The five selected development indicators contain useful predictive information, although their performance differs by model.
+- Random Forest outperformed Linear Regression when only the five development indicators were used.
+- Including previous-year GDP greatly improved the recorded model performance.
+- Linear Regression with previous-year GDP achieved the strongest recorded overall metrics.
+- Actual-versus-predicted comparisons provide a starting point for identifying observations that merit further analysis.
+
+**Main takeaway:** Model performance depends on the information supplied to the model. Comparing indicators-only models with models that use historical GDP helps distinguish the predictive information in the selected development indicators from the persistence of GDP over time.
 
 ## 📁 Repository Structure
 
@@ -169,6 +253,8 @@ global-development-analytics/
     └── global_development_analytics.sql
 ```
 
+*Make sure the filenames and folder structure in your GitHub repository match this example.*
+
 ## 🚀 How to Run the Project
 
 ### Prerequisites
@@ -178,49 +264,52 @@ global-development-analytics/
 - MySQL Server
 - Microsoft Excel or a compatible spreadsheet application
 
-### Step 1: Download the Repository
+### Step 1 — Get the Repository
 
-Clone or download this GitHub repository to your computer.
+Clone or download the GitHub repository to your computer.
 
-### Step 2: Install Python Dependencies
+### Step 2 — Install Dependencies
 
-Run the following command in your terminal:
+Open a terminal in the project folder and run:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Step 3: Prepare the Data
+### Step 3 — Review the Prepared Dataset
 
-Open the cleaned Excel dataset and review the prepared indicators and year coverage.
+Open the cleaned Excel file and verify the indicators and year coverage.
 
-### Step 4: Set Up the SQL Database
+### Step 4 — Set Up SQL
 
-Open the SQL script in the `sql/` directory, configure your MySQL connection, and execute the script according to its instructions.
+Open the SQL script in the `sql/` directory and configure it for your local MySQL setup. Run the script according to its instructions.
 
-Update the notebook's database connection settings to match your local MySQL configuration. Do not commit passwords or other credentials to GitHub.
+### Step 5 — Run the Notebook
 
-### Step 5: Run the Python Notebook
+Open `Global_Development_Analytics.ipynb` in Jupyter Notebook and execute the cells in order. Update file paths and database connection settings to match your environment.
 
-Open `Global_Development_Analytics.ipynb` in Jupyter Notebook and execute the cells in order.
-
-Ensure the dataset path and database connection settings match your local environment.
+**Security note:** Never commit database passwords, API keys or other credentials to a public GitHub repository.
 
 ## ⚠️ Limitations
 
-- The completeness of development indicators varies across countries and years.
-- GDP per capita predictions depend on the features and historical information available.
-- Strong predictive performance does not establish that the selected indicators cause changes in GDP per capita.
-- Models using lagged GDP may benefit from the persistence of GDP over time; their scores should not be compared with indicator-only models without explaining this difference.
-- Results depend on the data preparation, train-test split and evaluation methodology.
+- The analysis covers five selected development indicators and does not include every factor that may influence GDP per capita.
+- Data availability varies across countries and years.
+- GDP per capita is persistent over time, so models that include previous-year GDP can achieve high scores even when the other indicators contribute less predictive information.
+- Model results depend on data preparation, feature construction and the train-test procedure.
+- The recorded metrics and India example should be reconfirmed against the final notebook before publication.
+- Predictive relationships do not establish causation.
+- Prediction gaps identify differences between actual and estimated values but do not establish the reasons behind those differences.
+- The results are analytical benchmarks, not official economic forecasts.
 
-## 📚 Data Source & References
+## 📚 Data Sources
 
 - [World Bank — World Development Indicators](https://databank.worldbank.org/source/world-development-indicators)
-- [World Bank Data API](https://datahelpdesk.worldbank.org/knowledgebase/topics/125589-developer-information)
+- [World Bank Data API Documentation](https://datahelpdesk.worldbank.org/knowledgebase/topics/125589-developer-information)
 
 ## 👩‍💻 Project Summary
 
-This project demonstrates an end-to-end analytical workflow combining **Excel-based data preparation, SQL-based data management and querying, and Python-based exploratory analysis and machine learning**.
+This project demonstrates an end-to-end analytics workflow using **Excel, SQL, Python and machine learning** to investigate global development indicators and GDP per capita.
 
-It applies data analytics techniques to international development data to explore economic patterns and evaluate GDP per capita prediction approaches.
+It progresses from data preparation and validation to exploratory analysis, predictive modelling, model comparison and interpretation of prediction gaps.
+
+The central lesson is that machine learning results should be interpreted in context: a strong prediction score is meaningful only when the model's inputs, baseline performance and evaluation approach are understood.
