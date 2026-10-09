@@ -30,10 +30,6 @@ The predictive component examines whether historical development indicators can 
 - Evaluate the predictive contribution of development indicators separately from previous-year GDP.
 - Compare actual and predicted GDP per capita to identify prediction gaps.
 
-## Key Findings and Practical Relevance
-
-This project analyzes global development trends and explores how social and economic indicators relate to GDP per capita across countries from 2010 to 2024, using World Bank data. The analysis evaluates population growth, life expectancy, internet usage, unemployment, and exports as a percentage of GDP to understand their relationship with economic outcomes and assess their usefulness in GDP-per-capita prediction. Among the models using these indicators alone, Random Forest performed better than Linear Regression in the recorded evaluation results. Including previous-year GDP per capita substantially improved prediction accuracy, highlighting the importance of historical economic trends in estimating future values. These findings demonstrate how public data, SQL, Python, and machine learning can support cross-country comparisons, economic trend analysis, and data-informed research. The results may be useful to analysts, researchers, and development organizations exploring differences in economic performance. However, the project identifies predictive relationships rather than causal effects; it does not establish that any individual indicator directly causes GDP per capita to increase or decrease.
-
 ## 🔄 Project Workflow
 
 ```mermaid
@@ -305,6 +301,10 @@ Open `Global_Development_Analytics.ipynb` in Jupyter Notebook and execute the ce
 
 - [World Bank — World Development Indicators](https://databank.worldbank.org/source/world-development-indicators)
 - [World Bank Data API Documentation](https://datahelpdesk.worldbank.org/knowledgebase/topics/125589-developer-information)
+
+## Key Findings and Practical Relevance
+
+This project analyzes global development trends and explores how social and economic indicators relate to GDP per capita across countries from 2010 to 2024, using World Bank data. The analysis evaluates population growth, life expectancy, internet usage, unemployment, and exports as a percentage of GDP to understand their relationship with economic outcomes and assess their usefulness in GDP-per-capita prediction. Among the models using these indicators alone, Random Forest performed better than Linear Regression in the recorded evaluation results. Including previous-year GDP per capita substantially improved prediction accuracy, highlighting the importance of historical economic trends in estimating future values. These findings demonstrate how public data, SQL, Python, and machine learning can support cross-country comparisons, economic trend analysis, and data-informed research. The results may be useful to analysts, researchers, and development organizations exploring differences in economic performance. However, the project identifies predictive relationships rather than causal effects; it does not establish that any individual indicator directly causes GDP per capita to increase or decrease.
 
 ## 👩‍💻 Project Summary
 
